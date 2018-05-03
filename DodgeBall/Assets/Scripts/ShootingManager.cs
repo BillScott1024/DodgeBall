@@ -11,6 +11,8 @@ public class ShootingManager : MonoBehaviour {
     
     public float shootMoveSpeed = 0.4f;
     public Vector3 moveDirection = Vector3.left;
+
+    public AudioSource music;
     // Use this for initialization
     //void Awake()
     //{
@@ -55,6 +57,8 @@ public class ShootingManager : MonoBehaviour {
         Vector3 fwd = transform.TransformDirection(towards);
         
         instance.AddForce(fwd * power);
+
+        music.Play();
 
         Destroy(instance.gameObject,3f);
     }
