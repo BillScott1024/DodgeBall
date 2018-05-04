@@ -59,9 +59,12 @@
      <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectSensor.cs" />
      <Compile Include="Assets\Script\Kinect\KinectWrapper\SkeletonWrapper.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MouseControl.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\ShootingManager.cs" />
      <Compile Include="Assets\Scripts\movePoints.cs" />
+     <Compile Include="Assets\Scripts\test.cs" />
      <None Include="Assets\Sample- Low Poly Nature Assets\Materials\_MaterialIndex.txt" />
      <None Include="Assets\Sample- Low Poly Nature Assets\Documentation.txt" />
  <Reference Include="UnityEngine.UI">
