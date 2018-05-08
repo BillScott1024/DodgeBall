@@ -6,6 +6,8 @@ using UnityEngine;
 public class ShootingManager : MonoBehaviour {
 
     public GameObject shootingPosition;
+    public GameObject ScenesManager;
+    public GameObject AudioManager;
     public Rigidbody ball;
     public float power = 600f;
     
@@ -30,7 +32,11 @@ public class ShootingManager : MonoBehaviour {
         //InvokeRepeating("moveShootPosition",2f,1f);
 
     }
-
+    public void stopShoot()
+    {
+        Debug.Log("停止发射");
+        CancelInvoke();
+    }
 	// Update is called once per frame
 	void Update () {
         
@@ -48,6 +54,13 @@ public class ShootingManager : MonoBehaviour {
 
     //发射球
     void shootBalls() {
+        GameManager.ballCount--;
+        Debug.Log("GameManager.ballCount:" + GameManager.ballCount);
+        if (GameManager.ballCount == 0)
+        {
+            ScenesManager.GetComponent<ScenesManager>().showGameWin();
+            AudioManager.GetComponent<AudioManager>().playWinAudio();
+        }
         System.Random rd = new System.Random();
 
         Vector3 towards = new Vector3(0, rd.Next(0, 10) * 0.1f * 0.3f, 1);
@@ -58,8 +71,8 @@ public class ShootingManager : MonoBehaviour {
         
         instance.AddForce(fwd * power);
 
-        music.Play();
-
+        //music.Play();
+        AudioManager.GetComponent<AudioManager>().playShootAudio();
         Destroy(instance.gameObject,3f);
     }
 

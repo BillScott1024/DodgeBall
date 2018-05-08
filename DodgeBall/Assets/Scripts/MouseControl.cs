@@ -12,7 +12,7 @@ public class MouseControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     // public String methodName;
 
-    public GameObject gameManager;
+   // public GameObject gameManager;
     public GameObject buttonComponent;
     public int methodID;
 
@@ -28,7 +28,7 @@ public class MouseControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             Debug.Log("触摸开始");
 
           //  gameManager.GetComponent<GameManager>().OnStartGame();
-            buttonComponent.GetComponent<SceneManager>().SendMessage("methodSelectWithID", methodID);
+            buttonComponent.GetComponent<ScenesManager>().SendMessage("methodSelectWithID", methodID);
 
         }
     }

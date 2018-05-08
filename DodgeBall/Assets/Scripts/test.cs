@@ -13,7 +13,7 @@ public class test : MonoBehaviour {
 
     void jadge() {
 
-        hand.GetComponent<Transform>().position.z  
+    //    hand.GetComponent<Transform>().position.z  
     }
 	// Update is called once per frame
 	void Update () {
