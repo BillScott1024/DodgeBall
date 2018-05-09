@@ -10,7 +10,7 @@ public class ShootingManager : MonoBehaviour {
     public GameObject AudioManager;
     public Rigidbody ball;
     public float power = 600f;
-    
+    public float shootRate = 1.0f;
     public float shootMoveSpeed = 0.4f;
     public Vector3 moveDirection = Vector3.left;
 
@@ -28,7 +28,7 @@ public class ShootingManager : MonoBehaviour {
 
     void Start () {
         //positions = movePoints.positions;
-        InvokeRepeating("shootBalls", 2f, 1f);
+        InvokeRepeating("shootBalls", 2f, shootRate);
         //InvokeRepeating("moveShootPosition",2f,1f);
 
     }

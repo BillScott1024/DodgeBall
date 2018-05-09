@@ -5,7 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{048A5643-C66D-6398-A5D6-DF08759C49E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -46,51 +47,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GrassRoadRace\Script\CameraMove.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectImgControllers\DisplayColor.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectImgControllers\DisplayDepth.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectModelControllers\KinectModelControllerV2.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectModelControllers\KinectPointController.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\DepthWrapper.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\DeviceOrEmulator.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectEmulator.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectInterop.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectRecorder.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectSensor.cs" />
-     <Compile Include="Assets\Script\Kinect\KinectWrapper\SkeletonWrapper.cs" />
-     <Compile Include="Assets\Scripts\AudioManager.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\GameUIManager.cs" />
-     <Compile Include="Assets\Scripts\MouseControl.cs" />
-     <Compile Include="Assets\Scripts\PlayerData.cs" />
-     <Compile Include="Assets\Scripts\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\ScenesManager.cs" />
-     <Compile Include="Assets\Scripts\ShootingManager.cs" />
-     <Compile Include="Assets\Scripts\movePoints.cs" />
-     <Compile Include="Assets\Scripts\test.cs" />
-     <None Include="Assets\Sample- Low Poly Nature Assets\Materials\_MaterialIndex.txt" />
-     <None Include="Assets\Sample- Low Poly Nature Assets\Documentation.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\GrassRoadRace\Script\CameraMove.cs" />
+    <Compile Include="Assets\Scripts\ChangeLevelsHasMain.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectImgControllers\DisplayColor.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectImgControllers\DisplayDepth.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectModelControllers\KinectModelControllerV2.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectModelControllers\KinectPointController.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\DepthWrapper.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\DeviceOrEmulator.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectEmulator.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectInterop.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectRecorder.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\KinectSensor.cs" />
+    <Compile Include="Assets\Script\Kinect\KinectWrapper\SkeletonWrapper.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameUIManager.cs" />
+    <Compile Include="Assets\Scripts\MouseControl.cs" />
+    <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\ScenesManager.cs" />
+    <Compile Include="Assets\Scripts\ShootingManager.cs" />
+    <Compile Include="Assets\Scripts\movePoints.cs" />
+    <Compile Include="Assets\Scripts\test.cs" />
+    <None Include="Assets\Sample- Low Poly Nature Assets\Materials\_MaterialIndex.txt" />
+    <None Include="Assets\Sample- Low Poly Nature Assets\Documentation.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -100,5 +102,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

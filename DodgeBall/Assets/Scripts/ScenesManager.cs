@@ -16,13 +16,16 @@ public class ScenesManager : MonoBehaviour
     //public AudioSource gameFailedAudio;
     public GameObject audioManager;
     public GameObject shootManager;
-
+    public GameObject gameManager;
     // Use this for initialization
     void Start()
     {
-
+        if (Application.loadedLevel != 0 && gameOverUI.activeInHierarchy)
+        {
+            gameOverUI.SetActive(false);
+        }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +48,16 @@ public class ScenesManager : MonoBehaviour
             case 1004:
 
                 break;
+
+            case 1020:
+                replayGame();
+                break;
+            case 1021:
+                nextGame();
+                break;
+            case 1022:
+                returnMainScene();
+                break;
             default:
                 Debug.Log("methodID error");
                 break;
@@ -52,7 +65,18 @@ public class ScenesManager : MonoBehaviour
 
         }
     }
-
+    public void returnMainScene()
+    {
+        Application.LoadLevel(0);
+    }
+    public void nextGame()
+    {
+        gameManager.GetComponent<ChangeLevelsHasMain>().LoadNextLevels();
+    }
+    public void replayGame()
+    {
+        Application.LoadLevel(Application.loadedLevelName);
+    }
     public void OnStartGame()
     {
         titleText.GetComponent<Animation>().Play("Title_Move_Out");
@@ -95,6 +119,6 @@ public class ScenesManager : MonoBehaviour
 
     public void loadLevel2()
     {
-        Application.LoadLevel("Level2");
+        Application.LoadLevel("Level_2");
     }
 }

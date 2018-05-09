@@ -8,7 +8,7 @@ public class GameUIManager : MonoBehaviour {
 
     public GameObject scoreLabel;
     public GameObject gameLevelLabel;
-
+    //public GameObject nextGameButton;
 	// Use this for initialization
 	void Start ()
     {
@@ -28,19 +28,19 @@ public class GameUIManager : MonoBehaviour {
             case "MainScene":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第一关";
                 break;
-            case "Level2":
+            case "Level_2":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第二关";
                 break;
-            case "Level3":
+            case "Level_3":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第三关";
                 break;
-            case "Level4":
+            case "Level_4":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第四关";
                 break;
-            case "Level5":
+            case "Level_5":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第五关";
                 break;
-            case "Level6":
+            case "Level_6":
                 gameLevelLabel.GetComponent<Text>().text = "关卡：第六关";
                 break;
             default:

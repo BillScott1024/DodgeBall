@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject titleText;
-    public GameObject startGameText;
+    //public GameObject titleText;
+    //public GameObject startGameText;
 
-    public GameObject levelGroup1;
-    public GameObject levelGroup2;
+    //public GameObject levelGroup1;
+    //public GameObject levelGroup2;
 
+    public int m_ballcount;
     public static int  ballCount = 10;
    
     // Use this for initialization
     void Start () {
-      
+        ballCount = m_ballcount;
     }
 	
 	// Update is called once per frame
