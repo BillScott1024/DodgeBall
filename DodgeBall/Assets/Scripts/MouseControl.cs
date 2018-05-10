@@ -14,30 +14,29 @@ public class MouseControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
    // public GameObject gameManager;
     public GameObject gameManager;
-   // public Animator cursor;
     public int methodID;
-    public GameObject cursor;
-   // private bool m_cursor = false;
+    public Animator cursor;
+    private bool m_cursor = false;
     void Update()
     {
 
         _timer += Time.deltaTime;
-
+        
         //Debug.Log("触摸计时");
         if (_isEnter && _timer - 2.0f > 0f)
         {
           //  obj.SetActive(true);
             Debug.Log("触摸开始");
-           // cursor.transform.position = Input.mousePosition;
-            //if (m_cursor == false)
-            //{
-            //    cursor.SetBool("anim_cursor", false);
-            //}
-            //if(m_cursor == true)
-            //{
-            //    cursor.SetBool("anim_cursor", true);
-            //}
-            
+            // cursor.transform.position = Input.mousePosition;
+            if (m_cursor == false)
+            {
+                cursor.SetBool("anim_cursor_1", false);
+            }
+            if (m_cursor == true)
+            {
+                cursor.SetBool("anim_cursor_1", true);
+            }
+
 
             //  gameManager.GetComponent<GameManager>().OnStartGame();
             gameManager.GetComponent<ScenesManager>().SendMessage("methodSelectWithID", methodID);
@@ -48,7 +47,8 @@ public class MouseControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         _timer = 0;
         _isEnter = true;
-        cursor.GetComponent<Animation>().Play();
+        m_cursor = true;
+       // cursor.Play("anim_cursor_1");
         Debug.Log("触摸进入");
 
         
@@ -58,7 +58,7 @@ public class MouseControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         _isEnter = false;
         // obj.SetActive(false);
-
+        m_cursor = false;
         Debug.Log("触摸退出");
     }
 }
