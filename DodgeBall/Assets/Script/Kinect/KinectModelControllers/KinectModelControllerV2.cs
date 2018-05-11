@@ -93,14 +93,14 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	private float Foot_Right_pos;
 	private GameObject Robot;
 	private float time = 0;
+    int delay = 0;
 
-	
-	// Use this for initialization
-	void Start () {
-
-		Robot = GameObject.Find ("robot");
-		Foot_Left_pos = Foot_Left.transform.position.z;
-		Foot_Right_pos = Foot_Right.transform.position.z;
+    // Use this for initialization
+    void Start () {
+        
+        Robot = GameObject.Find ("robot");
+		Foot_Left_pos = Foot_Left.transform.position.x;
+		Foot_Right_pos = Foot_Right.transform.position.x;
 		//store bones in a list for easier access, everything except Hip_Center will be one
 		//higher than the corresponding Kinect.NuiSkeletonPositionIndex (because of the hip_override)
 		_bones = new GameObject[(int)Kinect.NuiSkeletonPositionIndex.Count + 5] {
@@ -177,29 +177,61 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	}
 
 	void Update () {
-		//update the data from the kinect if necessary
-		if (sw.pollSkeleton ()) {
-			for (int ii = 0; ii < (int)Kinect.NuiSkeletonPositionIndex.Count; ii++) {
-				if (((uint)Mask & (uint)(1 << ii)) > 0 && (_nullMask & (uint)(1 << ii)) <= 0) {
-					RotateJoint (ii);
-					int bone = ii;
-					if (sw.boneState [player, bone] == Kinect.NuiSkeletonPositionTrackingState.Tracked) {
-						if (bone == (int)Kinect.NuiSkeletonPositionIndex.FootLeft) {
+        delay+= 1;
 
-							if (Mathf.Abs (Foot_Left.transform.position.z - Foot_Left_pos) > 0.05f) {
-								Robot.GetComponent<Animation>().Play ("walk");
-								Robot.transform.position += new Vector3 (0f, 0f, -0.1f);
-								Foot_Left_pos = Foot_Left.transform.position.z;
-							} 
-							else{
-								Robot.GetComponent<Animation>().Play("idle");
-							}
-						}
-					}
-				}
+        //  Debug.Log("data update");
+        //update the data from the kinect if necessary
+        if (delay == 15)
+        {
+           // Debug.Log("delay:" + delay);
+            delay = 0;
+            if (sw.pollSkeleton ()) {
+            // Robot.transform.position = Hip_Center.transform.position;
+           
+                for (int ii = 0; ii < (int)Kinect.NuiSkeletonPositionIndex.Count; ii++)
+                {
+                    if (((uint)Mask & (uint)(1 << ii)) > 0 && (_nullMask & (uint)(1 << ii)) <= 0)
+                    {
+                        RotateJoint(ii);
+                        int bone = ii;
+                        if (sw.boneState[player, bone] == Kinect.NuiSkeletonPositionTrackingState.Tracked)
+                        {
+                            if (bone == (int)Kinect.NuiSkeletonPositionIndex.FootLeft)
+                            {
+                                Debug.Log("Foot_Left.transform.position.x - Foot_Left_pos:" + Foot_Left.transform.position.x+" "+ Foot_Left_pos);
+                                Debug.Log(Foot_Left.transform.position.x - Foot_Left_pos);
+                                if (Math.Abs( Foot_Left.transform.position.x - Foot_Left_pos) > 0.05f &&
+                                    (Foot_Left.transform.position.x > Foot_Left_pos))
+                                {
+                                  //  Robot.GetComponent<Animation>().Play("walk");
+                                    Debug.Log("data walk right");
+                                    if (Robot.transform.position.x >= -5.556f && Robot.transform.position.x <= -2.389f)
+                                    {
+                                        Robot.transform.position += new Vector3(-0.2f, 0f, 0f);
+
+                                        Foot_Left_pos = Foot_Left.transform.position.x;
+                                    }
+                                    
+                                }
+                                else if(Math.Abs(Foot_Left.transform.position.x - Foot_Left_pos) > 0.05f &&
+                                    (Foot_Left.transform.position.x < Foot_Left_pos))
+                                {
+                                    //  Robot.GetComponent<Animation>().Play("walk");
+                                    Debug.Log("data walk left");
+                                    if (Robot.transform.position.x >= -5.556f && Robot.transform.position.x <= -2.389f)
+                                    {
+                                        Robot.transform.position -= new Vector3(-0.2f, 0f, 0f);
+
+                                        Foot_Left_pos = Foot_Left.transform.position.x;
+                                    }
+                                    //   Robot.GetComponent<Animation>().Play("idle");
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
-		
-	
 
 
 			//Robot.transform.position += Foot_Left.transform.position-Foot_Left_pos ;

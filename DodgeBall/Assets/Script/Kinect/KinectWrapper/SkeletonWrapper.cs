@@ -58,10 +58,10 @@ public class SkeletonWrapper : MonoBehaviour {
 		double theta = Mathf.Atan((kinect.getLookAt().y+kinect.getKinectCenter().y-kinect.getSensorHeight()) / (kinect.getLookAt().z + kinect.getKinectCenter().z));
 		float kinectAngle = (float)(theta * (180 / Mathf.PI));
         Debug.Log("theta:" + theta);
-        if ( double.IsNaN(kinectAngle))
-        {
-            return;
-        }
+        //if ( double.IsNaN(kinectAngle))
+        //{
+            //return;
+        //}
 		quat.eulerAngles = new Vector3(-kinectAngle, 0, 0);
 		rot.SetTRS( Vector3.zero, quat, Vector3.one);
 
