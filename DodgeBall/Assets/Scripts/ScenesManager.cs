@@ -12,6 +12,9 @@ public class ScenesManager : MonoBehaviour
     public GameObject levelGroup2;
 
     public GameObject gameOverUI;
+    public GameObject winUI;
+    public GameObject failedUI;
+    public GameObject starUI;
     //public AudioSource gameWinAudio;
     //public AudioSource gameFailedAudio;
     public GameObject audioManager;
@@ -90,7 +93,9 @@ public class ScenesManager : MonoBehaviour
 
         Debug.Log("show gameover failed Aniamtion");
         gameOverUI.SetActive(true);
-
+        winUI.SetActive(false);
+        failedUI.SetActive(true);
+        starUI.SetActive(false);
         //  audioManager.GetComponent<AudioManager>().playFailedAudio();
         audioManager.GetComponent<AudioManager>().stopBgmAduio();
         shootManager.GetComponent<ShootingManager>().stopShoot();
@@ -100,6 +105,9 @@ public class ScenesManager : MonoBehaviour
     {
         Debug.Log("show gameover win Aniamtion");
         gameOverUI.SetActive(true);
+        winUI.SetActive(true);
+        failedUI.SetActive(false);
+        starUI.SetActive(true);
         //    audioManager.GetComponent<AudioManager>().playWinAudio();
         audioManager.GetComponent<AudioManager>().stopBgmAduio();
         shootManager.GetComponent<ShootingManager>().stopShoot();

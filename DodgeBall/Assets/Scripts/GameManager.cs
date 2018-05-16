@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Home))
+        {
+            Debug.Log("退出游戏");
+            Application.Quit();
+        }
+    }
 
     //public void OnStartGame()
     //{
